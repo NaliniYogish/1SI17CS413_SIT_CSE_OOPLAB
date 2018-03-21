@@ -1,0 +1,68 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class LocationType
+{
+    int iXcor, iYcor;
+    
+    public:
+    void fnSetLocation();
+    void fnShowLocation();
+    double fnDistFromOrigin();
+    double fnCalcDist(LocationType);
+};
+
+void LocationType :: fnSetLocation()
+{
+    cout << "\nEnter coordinates\n";
+    cin >> iXcor;
+    cin >> iYcor;
+}
+void LocationType :: fnShowLocation()
+{
+    cout << "\nX-coordinate : " << iXcor;   
+    cout << "\nY-coordinate : " << iYcor;   
+}
+
+double LocationType :: fnDistFromOrigin()
+{
+    return sqrt(iXcor*iXcor+iYcor*iYcor);
+}
+//l1.fnCalcDist(l2);
+double LocationType :: fnCalcDist(LocationType b)
+{
+    return sqrt((b.iXcor - iXcor) * (b.iXcor - iXcor)+ (b.iYcor - iYcor) * (b.iYcor - iYcor));
+}
+
+int main()
+{
+    LocationType l1, l2;
+    double dDist;
+    
+    l1.fnSetLocation();
+    l2.fnSetLocation();
+    
+    l1.fnShowLocation();
+    l2.fnShowLocation();
+    
+    dDist = l1.fnDistFromOrigin();
+    cout << "\nDistance of l1 from origin : " << dDist << endl;
+    
+    dDist = l2.fnDistFromOrigin();
+    cout << "\nDistance of l2 from origin : " << dDist << endl;
+
+    dDist = l1.fnCalcDist(l2);
+    cout << "\nDistance between l1 and l2 is : " << dDist << endl;
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+

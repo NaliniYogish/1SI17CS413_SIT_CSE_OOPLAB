@@ -1,0 +1,46 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+class Rectangle
+{
+	private:
+		int iLength;
+		int iBreadth;
+		int iArea;
+
+	public:
+		void getData(void);
+		void calculateArea(void);
+		void displayArea(void);
+};
+
+void Rectangle :: getData(void)
+{
+	cout << "Enter Length and Breadth of the Rectangle" << endl;
+	cin >> iLength >> iBreadth;
+}
+
+void Rectangle :: calculateArea(void)
+{
+	iArea = iLength * iBreadth;
+}
+void Rectangle :: displayArea(void)
+{
+	cout << "\nArea of the Rectangle is" << endl << iArea << endl;
+}
+
+
+int main(void)
+{
+	Rectangle r1,r2;
+
+	r1.getData();
+	r1.calculateArea();
+	r1.displayArea();
+
+	cin.get();
+	return 0;
+}
+

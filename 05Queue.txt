@@ -1,0 +1,98 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+
+const int MAX=4;
+class QUEUE
+{
+    int front,rear,q[MAX];
+    public:
+        QUEUE()
+        {
+            front=-1;
+	    rear = -1;
+        }
+        void InsRear(void);
+        int DelFront(void);
+        void display(void);
+};
+
+void QUEUE :: InsRear(void)
+{
+    int elem;
+
+    if(rear == MAX-1)
+    {
+        cout << "\nQueue Overflow\n";
+        return;
+    }
+
+    cout<<"enter the element to be pushed"<<endl;
+    cin>>elem;
+
+    q[++rear] = elem;
+
+}
+
+int QUEUE :: DelFront(void)
+{
+    if(front == rear)
+    {
+        cout << "\nQueue Underflow\n";
+	front = rear = -1;
+        return -1;
+    }
+    return q[++front];	//returns the top most element in the stack
+}
+
+void QUEUE :: display(void)
+{
+    if(front == rear)
+    {
+        cout << "\nQueue Empty\n";
+        return;
+    }
+
+    cout<< "\nContents of the Queue\n";
+    for(int i=front; i<=rear; i++)
+        cout << q[i] << "\t";
+    //cout<<endl
+    cout<<endl;
+}
+
+int main(void)
+{
+	QUEUE s1;
+	int ch,ele;
+
+	while(1)
+	{
+		cout<<"1.push"<<endl<<"2.pop"<<endl<<"3.display"<<endl<<
+			"4.return"<<endl<<"enter ur ch"<<endl;
+		cin>>ch;
+		switch(ch)
+		{
+			case 1:
+				cout<<endl;
+				s1.InsRear();
+				cout<<endl;
+				break;
+			case 2:
+				cout<<endl;
+				ele=s1.DelFront();
+				if(ele != -1)
+				    cout << "\nPopped element is " << ele << endl;
+				cout<<endl;
+				break;
+			case 3:
+				cout<<endl;
+				s1.display();
+				cout<<endl;
+				break;
+			case 4:exit(0);
+		}
+	}
+	return 0;
+}
+
+
